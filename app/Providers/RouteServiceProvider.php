@@ -36,5 +36,19 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
         });
+
+        $this->configureVerbs();
+
+    }
+
+    /**
+     * @return void
+     */
+    private function configureVerbs(): void
+    {
+        Route::resourceVerbs([
+            'create' => 'criar',
+            'edit' => 'editar'
+        ]);
     }
 }

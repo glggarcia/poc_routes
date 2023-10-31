@@ -20,5 +20,12 @@ Route::get('/', function () {
 });
 
 //Nested resources
-Route::resource('employee', EmployeeController::class);
-Route::resource('employee.address', EmployeeAddressController::class);
+Route::resource('funcionario', EmployeeController::class)
+    ->parameters([
+        'funcionario' => 'employee'
+    ]);
+Route::resource('funcionario.endereco', EmployeeAddressController::class)
+    ->parameters([
+        'funcionario' => 'employee',
+        'endereco' => 'address'
+    ]);
