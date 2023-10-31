@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\EmployeeAddressController;
+use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Nested resources
+Route::resource('employee', EmployeeController::class);
+Route::resource('employee.address', EmployeeAddressController::class);
