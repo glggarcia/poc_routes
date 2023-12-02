@@ -23,7 +23,10 @@ Route::get('/', function () {
 Route::resource('funcionario', EmployeeController::class)
     ->parameters([
         'funcionario' => 'employee'
-    ]);
+    ])
+    ->middleware(['checkToken:general-token']);
+Route::get('userland', fn() => 'access granted')
+    ->middleware(['checkToken:simple-token']);
 Route::resource('funcionario.endereco', EmployeeAddressController::class)
     ->parameters([
         'funcionario' => 'employee',
